@@ -13,9 +13,10 @@ describe ('common locator types', () => {
     cy.get (".caption")
 
     // attribute locator
-    cy.get ("input[name='username']")
-    cy.get ("input[name='password']")
-    cy.get ("input[type='submit']").click ()
+    // cy.get ("input[name='username']")
+    // cy.get ("input[name='password']")
+    // cy.get ("input[type='submit']").click ()
+    cy.get (".more").contains ('Read More').click ()
 
     // condition locator, if ".toto" is present, log "toto is present", else log "toto is not present"
     cy.get ("body").then ($body => {

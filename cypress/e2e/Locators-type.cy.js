@@ -20,6 +20,7 @@ describe ('common locator types', () => {
 
     // condition locator, if ".toto" is present, log "toto is present", else log "toto is not present"
     cy.get ("body").then ($body => {
+      cy.log ($body.find ("a").length)
       if ($body.find (".toto").length > 0) {
         cy.log ("toto is present")
       } else {

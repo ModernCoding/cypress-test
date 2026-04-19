@@ -25,4 +25,11 @@ describe ('visit website', () => {
     cy.get ('a').contains ('Admin Page').click ()
   })
 
+  it ('type demo', () => {
+    cy.get ("input[name='username']").type ('john')
+    cy.get ("input[name='password']").type ('demo')
+    cy.get ("input[type='submit']").click ()
+    cy.url ().should ('include', 'overview.htm')
+  })
+
 })

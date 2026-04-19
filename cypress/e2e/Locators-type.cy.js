@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 
-describe ('visit website', () => {
+describe ('common locator types', () => {
 
-  beforeEach ('Visit the webpage', () => {
+  it ('list of common locator types', () => {
     
     cy.visit ('https://parabank.parasoft.com/parabank/index.htm')
 
@@ -14,17 +14,19 @@ describe ('visit website', () => {
 
     // attribute locator
     cy.get ("input[name='username']")
-  
-  })
-  
+    cy.get ("input[name='password']")
+    cy.get ("input[type='submit']").click ()
 
-  afterEach ('Clean up after test', () => {
-    cy.log ('Test completed')
-  })
-  
-  it ('Visit the website', () => {
-    cy.get ('.logo').should ('be.visible')
-    cy.get ('.caption').should ('have.text', 'Experience the difference')
+    // condition locator, if ".toto" is present, log "toto is present", else log "toto is not present"
+    cy.get ("body").then ($body => {
+      if ($body.find (".toto").length > 0) {
+        cy.log ("toto is present")
+      } else {
+        cy.log ("toto is not present")
+      }
+    })
+    
+
   })
 
 })
